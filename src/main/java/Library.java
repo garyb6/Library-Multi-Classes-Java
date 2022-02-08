@@ -17,7 +17,18 @@ public class Library {
         return this.collection.size();
     }
 
-    public void addBook(Book book){
-        this.collection.add(book);
+    public boolean checkCapacity(){
+        if (this.collection.size() == 10){
+            return true;
+        } else {
+            return false;
+        }
     }
-}
+
+    public void addBook(Book book) {
+        if (this.collection.size() <= 9) {
+            this.collection.add(book);
+        }
+    }
+    }
+

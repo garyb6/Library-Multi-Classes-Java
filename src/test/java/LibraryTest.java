@@ -5,19 +5,18 @@ import static org.junit.Assert.assertEquals;
 
 public class LibraryTest {
 
-
     Library library;
     Book book;
 
     @Before
     public void before(){
-        library = new Library("Central");
+        library = new Library("Central Neptune");
         book = new Book("Biological Universe", "Wallace Arthur", "Science");
     }
 
     @Test
     public void hasName(){
-        assertEquals("Central", library.getName());
+        assertEquals("Central Neptune", library.getName());
     }
 
     @Test
@@ -28,6 +27,29 @@ public class LibraryTest {
     @Test
     public void canAddBookToCollection(){
         library.addBook(book);
-        assertEquals(1, library.bookCount());
+        library.addBook(book);
+        assertEquals(2, library.bookCount());
+    }
+
+    @Test
+    public void checkCapacityOfLibrary() {
+        assertEquals(false, library.checkCapacity());
+    }
+
+    @Test
+    public void canAddBookToCollectionOnlyIfCapacityAllows(){
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        assertEquals(10, library.bookCount());
     }
 }

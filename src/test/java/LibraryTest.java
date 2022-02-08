@@ -32,8 +32,22 @@ public class LibraryTest {
     }
 
     @Test
-    public void checkCapacityOfLibrary() {
+    public void checkIfLibraryIsUnderCapacityOf10() {
         assertEquals(false, library.checkCapacity());
+    }
+    @Test
+    public void checkIfLibraryIsAtCapacityOf10() {
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        library.addBook(book);
+        assertEquals(true, library.checkCapacity());
     }
 
     @Test
